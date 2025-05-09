@@ -26,7 +26,7 @@ let infoPage = (contacts) => {
 
 }
 
-let PORT = process.env.PORT;
+let PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
 })
