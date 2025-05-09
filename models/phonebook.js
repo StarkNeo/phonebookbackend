@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
-let url = process.env.MONGODB_URI
+let url = process.env.MONGODB_URI;
 mongoose.set('strictQuery',false);
 mongoose.connect(url)
 .then(result=>{
