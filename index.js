@@ -51,8 +51,7 @@ app.get("/info", (request, response) => {
 app.get("/api/persons/:id", (request, response) => {
     let id = request.params.id;
     Contact.findById(id).then(person => {
-        response.send(person)
-        
+        response.send(person)       
     })
     /*
     let personFound = persons.find(person => person.id === id)
