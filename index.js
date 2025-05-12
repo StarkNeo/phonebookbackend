@@ -111,8 +111,6 @@ app.post("/api/persons", (request, response, next) => {
         }
     })
     .catch(error => next(error))
-
-
     /*
     let id = Math.floor(Math.random() * 1000000);
     let nameFound = persons.find(person => person.name === request.body.name);
