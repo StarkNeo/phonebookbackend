@@ -48,11 +48,13 @@ app.get("/info", (request, response) => {
 
 })
 
-app.get("/api/persons/:id", (request, response) => {
+app.get("/api/persons/:id", (request, response,next) => {
     let id = request.params.id;
-    Contact.findById(id).then(person => {
+    Contact.findById(id)
+    .then(person => {
         response.send(person)       
     })
+    .catch(error=>next(error))
     /*
     let personFound = persons.find(person => person.id === id)
     if (personFound) {
@@ -73,7 +75,7 @@ app.delete("/api/persons/:id", (request, response, next) => {
 
 })
 
-app.post("/api/persons", (request, response) => {
+app.post("/api/persons", (request, response,next) => {
     //let id = persons.length>0?Math.max(...persons.map(person=>Number(person.id))):0;
     let name = request.body.name;
     let number = request.body.number;
@@ -97,7 +99,7 @@ app.post("/api/persons", (request, response) => {
                 })
 
             }
-        })
+        }).catch(error=>next(error))
     }
 
     /*
